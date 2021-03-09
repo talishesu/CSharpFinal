@@ -10,6 +10,7 @@ namespace CSharpFinal
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
