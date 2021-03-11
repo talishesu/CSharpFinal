@@ -27,12 +27,11 @@ namespace CSharpFinal.Classes
             Price = price;
             Number = number;
         }
-
         public void ShowProducts()
         {
-            foreach (Product item in products)
+            foreach (var item in products)
             {
-                Console.WriteLine($"{item.Name} {item.Price} {item.Number}");
+                Console.WriteLine(item.Name);
             }
         }
 
