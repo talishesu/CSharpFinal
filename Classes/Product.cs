@@ -9,6 +9,7 @@ namespace CSharpFinal.Classes
 {
     class Product : IMarketableProduct
     {
+        List<Product> products = new List<Product>();
         public string Name { get; set; }
         public double Price { get; set; }
         public enum Category { }
@@ -19,6 +20,12 @@ namespace CSharpFinal.Classes
         {
             _id++;
             Id = _id;
+        }
+        public Product(string name,double price,int number)
+        {
+            Name = name;
+            Price = price;
+            Number = number;
         }
 
         public void Products()
@@ -33,7 +40,14 @@ namespace CSharpFinal.Classes
 
         public void AddProduct()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("--->Yeni mehsul elave et<---");
+            Console.WriteLine(">Mehsulun Adini Daxil Edin<");
+            Name = Console.ReadLine();
+            Console.WriteLine("Mehsulun Qiymetini Daxil Edin");
+            Price = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Mehsulun Sayini Daxil Edin");
+            Number = Convert.ToInt32(Console.ReadLine());
+            products.Add(new Product(Name, Price, Number));
         }
 
         public void ChangeProductInfo()
