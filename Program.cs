@@ -39,7 +39,8 @@ namespace CSharpFinal
                     case "1":
                         
                         Product product = new Product();
-                        product.AddProduct();
+                        product.AddProduct(product);
+                        //product.ShowProducts();
                         break;
                     case "2":
                         Console.WriteLine("Mehsul uzerinde duzelis et");

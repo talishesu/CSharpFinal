@@ -9,7 +9,7 @@ namespace CSharpFinal.Classes
 {
     class Product : IMarketableProduct
     {
-        List<Product> products = new List<Product>();
+        public Product[] products = new Product[0];
         public string Name { get; set; }
         public double Price { get; set; }
         public enum Category { }
@@ -28,9 +28,12 @@ namespace CSharpFinal.Classes
             Number = number;
         }
 
-        public void Products()
+        public void ShowProducts()
         {
-            throw new NotImplementedException();
+            foreach (Product item in products)
+            {
+                Console.WriteLine($"{item.Name} {item.Price} {item.Number}");
+            }
         }
 
         public string ProductSales()
@@ -38,7 +41,7 @@ namespace CSharpFinal.Classes
             throw new NotImplementedException();
         }
 
-        public void AddProduct()
+        public void AddProduct(Product product)
         {
             Console.WriteLine("--->Yeni mehsul elave et<---");
             Console.WriteLine(">Mehsulun Adini Daxil Edin<");
@@ -47,7 +50,8 @@ namespace CSharpFinal.Classes
             Price = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Mehsulun Sayini Daxil Edin");
             Number = Convert.ToInt32(Console.ReadLine());
-            products.Add(new Product(Name, Price, Number));
+            Array.Resize(ref products, products.Length + 1);
+            products[products.Length - 1] = product;
         }
 
         public void ChangeProductInfo()
